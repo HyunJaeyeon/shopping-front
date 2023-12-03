@@ -8,9 +8,14 @@ function Root() {
         <h1 className="font-bold text-4xl text-neutral-50">
           Enjoy Your Shopping !
         </h1>
-        <button className="bg-white p-2">
-          <Link to={'register'}>로그인/회원가입</Link>
-        </button>
+        <div>
+          <button className="bg-white p-2 mr-2">
+            <Link to={'login'}>로그인</Link>
+          </button>
+          <button className="bg-white p-2">
+            <Link to={'register'}>회원가입</Link>
+          </button>
+        </div>
       </div>
       <Outlet />
     </main>

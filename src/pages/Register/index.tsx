@@ -1,5 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
-import handleRegister from './user';
+import handleRegister from './handler';
 
 type InputHandlerType = (event: ChangeEvent<HTMLInputElement>) => void;
 type SubmitHandlerType = (event: FormEvent<HTMLFormElement>) => void;
