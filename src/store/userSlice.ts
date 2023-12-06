@@ -5,12 +5,14 @@ import handler from '../pages/Login/handler';
 const userSlice = createSlice({
   name: 'user',
   initialState: { userId: '', isLogin: false },
-  reducers: {
-    login: (state, action) => {
+  reducers: {},
+  extraReducers: {
+    [handler.fulfilled.type]: (state, action) => {
+      console.log(action.payload);
       state.userId = action.payload.userId;
       state.isLogin = true;
     },
-    logout: (state) => {
+    [handler.rejected.type]: (state) => {
       state.userId = '';
       state.isLogin = false;
     },
