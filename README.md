@@ -5,3 +5,4 @@
 - typescript
 - tailwind css
 - axios
+- redux-toolkit

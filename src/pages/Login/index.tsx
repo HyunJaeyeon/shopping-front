@@ -1,5 +1,7 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import handleLogin from './handler';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import handler from './handler';
+import { useAppDispatch, useAppSelector } from '../../store/useTypedSelector';
+import { useNavigate } from 'react-router-dom';
 
 type InputHandlerType = (event: ChangeEvent<HTMLInputElement>) => void;
 type SubmitHandlerType = (event: FormEvent<HTMLFormElement>) => void;
@@ -7,6 +9,10 @@ type SubmitHandlerType = (event: FormEvent<HTMLFormElement>) => void;
 function Login() {
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
+  const { isLogin, message } = useAppSelector((state) => state.user);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLoginId: InputHandlerType = (event) =>
     setLoginId(event.target.value);
@@ -16,12 +22,19 @@ function Login() {
 
   const handleSubmit: SubmitHandlerType = (event) => {
     event.preventDefault();
-    // console.log(loginId, password);
-    handleLogin({ loginId, password });
+
+    dispatch(handler({ loginId, password }));
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate('/');
+    }
+  }, [isLogin, navigate]);
 
   return (
     <>
+      {!isLogin && <h1>{message}</h1>}
       <h1 className="font-bold text-4xl">Login</h1>
       <form
         onSubmit={handleSubmit}

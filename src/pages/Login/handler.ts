@@ -18,7 +18,7 @@ const handler = createAsyncThunk(
       console.log('response', response);
       return thunkAPI.fulfillWithValue(response.data.data);
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue('아이디/비밀번호 오류입니다');
     }
   },
 );
