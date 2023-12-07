@@ -5,6 +5,7 @@ const store = configureStore({
   reducer: {
     user: userReducer,
   },
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 // useSelector 사용시 타입으로 사용하기 위함
