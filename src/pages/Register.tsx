@@ -1,5 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
-import handleRegister from './handler';
+import createUser from '../apis/register';
 
 type InputHandlerType = (event: ChangeEvent<HTMLInputElement>) => void;
 type SubmitHandlerType = (event: FormEvent<HTMLFormElement>) => void;
@@ -23,7 +23,7 @@ function Register() {
   const handleSubmit: SubmitHandlerType = (event) => {
     event.preventDefault();
 
-    handleRegister({ name, loginId, password, email });
+    createUser({ name, loginId, password, email });
   };
 
   return (

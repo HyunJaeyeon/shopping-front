@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-function Root() {
+function Header() {
   return (
     <main className="p-8">
       <div className="flex flex-row justify-between bg-black p-2">
@@ -22,4 +22,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default Header;

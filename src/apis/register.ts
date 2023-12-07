@@ -7,7 +7,7 @@ interface RegisterProps {
   email: string;
 }
 
-const handleRegister = async ({
+const createUser = async ({
   name,
   loginId,
   password,
@@ -28,4 +28,4 @@ const handleRegister = async ({
     });
 };
 
-export default handleRegister;
+export default createUser;

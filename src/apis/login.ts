@@ -6,7 +6,7 @@ interface LoginProps {
   password: string;
 }
 
-const handler = createAsyncThunk(
+const getUser = createAsyncThunk(
   'Login',
   async ({ loginId, password }: LoginProps, thunkAPI) => {
     try {
@@ -23,4 +23,4 @@ const handler = createAsyncThunk(
   },
 );
 
-export default handler;
+export default getUser;

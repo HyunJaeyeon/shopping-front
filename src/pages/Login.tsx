@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import handler from './handler';
-import { useAppDispatch, useAppSelector } from '../../store/useTypedSelector';
+import getUser from '../apis/login';
+import { useAppDispatch, useAppSelector } from '../store/useTypedSelector';
 import { useNavigate } from 'react-router-dom';
 
 type InputHandlerType = (event: ChangeEvent<HTMLInputElement>) => void;
@@ -23,7 +23,7 @@ function Login() {
   const handleSubmit: SubmitHandlerType = (event) => {
     event.preventDefault();
 
-    dispatch(handler({ loginId, password }));
+    dispatch(getUser({ loginId, password }));
   };
 
   useEffect(() => {
