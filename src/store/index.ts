@@ -7,6 +7,11 @@ const store = configureStore({
   reducer: {
     root: rootReducer,
   },
+  //non-serializable value 에러 해결위해 미들웨어 설정
+  middleware: (defaultMiddleware) =>
+    defaultMiddleware({
+      serializableCheck: false,
+    }),
   devTools: process.env.NODE_ENV !== 'production',
 });
 
