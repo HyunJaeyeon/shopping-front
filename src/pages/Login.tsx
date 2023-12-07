@@ -9,9 +9,7 @@ type SubmitHandlerType = (event: FormEvent<HTMLFormElement>) => void;
 function Login() {
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
-  const { isLogin, message } = useAppSelector(
-    (state) => state.root.userReducer,
-  );
+  const { isLogin, message } = useAppSelector((state) => state.root.user);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
