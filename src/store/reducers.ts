@@ -6,7 +6,7 @@ import user from './userSlice';
 const persistConfig = {
   key: 'root', // localStorage key
   storage, // localStorage
-  whitelist: ['user'], // 저장할 target (reducer name)
+  // whitelist: ['user'], // 저장할 target (reducer name)
 };
 
 const rootReducer = combineReducers({

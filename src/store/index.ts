@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
-import rootReducer from './reducers';
+import persistedReducer from './reducers';
 
 const store = configureStore({
   reducer: {
-    root: rootReducer,
+    root: persistedReducer,
   },
   //non-serializable value 에러 해결위해 미들웨어 설정
   middleware: (defaultMiddleware) =>
