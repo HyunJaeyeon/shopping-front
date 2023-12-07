@@ -2,9 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import getUser from '../apis/login';
 import { PURGE } from 'redux-persist';
 
+const INITIAL_STATE = { userId: '', isLogin: false, message: '' };
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: { userId: '', isLogin: false, message: '' },
+  initialState: INITIAL_STATE,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -21,7 +23,9 @@ const userSlice = createSlice({
           state.isLogin = false;
           state.message = action.payload;
         },
-      );
+      )
+      //유저정보 초기화
+      .addCase(PURGE, () => INITIAL_STATE);
   },
 });
 
