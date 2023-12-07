@@ -1,15 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './userSlice';
+// import userReducer from './userSlice';
+import { persistStore } from 'redux-persist';
+import rootReducer from './reducers';
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
+    root: rootReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });
 
-// useSelector 사용시 타입으로 사용하기 위함
 export type RootState = ReturnType<typeof store.getState>;
-// useDispatch를 좀 더 명확하게 사용하기 위함
 export type AppDispatch = typeof store.dispatch;
+
+export const persistor = persistStore(store);
 export default store;
